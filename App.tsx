@@ -36,7 +36,7 @@ interface HomeScreenProps {
 const HomeScreen: React.FC<HomeScreenProps> = ({ navigation }) => {
   return (
     <View>
-      <Text>Home Screen - yah back on track</Text>
+      <Text style={styles.text}>Home Screen - Just checking after redux dependcies install if there is anything braking</Text>
       <Button title="go to profile" onPress={() => navigation.navigate('Profile')} />
     </View>
   );
@@ -48,7 +48,7 @@ interface profileScreenProps {
 const ProfileScreen: React.FC<profileScreenProps> = ({ navigation }) => {
   return (
     <View>
-      <Text>Home Screen -oohoo</Text>
+      <Text style={styles.text}>Profile Screen -oohoo</Text>
       <Button title="go to Home" onPress={() => navigation.navigate('Home')} />
     </View>
   );
@@ -80,3 +80,10 @@ const App = () => {
 };
 
 export default App;
+
+const styles = StyleSheet.create({
+  text:{
+    fontSize:24,
+    color:'#000000',
+  }
+})
