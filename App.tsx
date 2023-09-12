@@ -1,10 +1,5 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
+// this should be top most import 'react-native-gesture-handler';
+import 'react-native-gesture-handler';
 import React from 'react';
 import type {PropsWithChildren} from 'react';
 import {
@@ -27,8 +22,10 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer,NavigationProp} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 
+const Drawer = createDrawerNavigator();
 
 const Stack = createNativeStackNavigator();
 
@@ -58,7 +55,14 @@ const ProfileScreen: React.FC<profileScreenProps> = ({ navigation }) => {
 };
 
 
-
+function MyDrawer() {
+  return (
+    <Drawer.Navigator>
+      <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
+    </Drawer.Navigator>
+  );
+}
 
 const App = () => {
   return (
@@ -66,7 +70,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
+          component={MyDrawer}
           options={{title: 'Welcome'}}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
